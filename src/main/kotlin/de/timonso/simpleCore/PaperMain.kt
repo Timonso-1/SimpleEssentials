@@ -5,10 +5,12 @@ import org.bukkit.plugin.java.JavaPlugin
 class PaperMain : JavaPlugin() {
 
     override fun onEnable() {
-        // Plugin startup logic
+        PaperCommandManager.registerALL()
+
+        server.consoleSender.sendMessage("SimpleCore has been enabled!")
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+            server.consoleSender.sendMessage("SimpleCore has been disabled!")
     }
 }
