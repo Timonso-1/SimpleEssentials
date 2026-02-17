@@ -1,8 +1,11 @@
 package de.timonso.simpleCore.command
 
-import de.timonso.simpleCore.util.prefix.PrefixUtil
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import dev.jorel.commandapi.kotlindsl.*
+import de.timonso.simpleCore.util.prefix.PrefixUtil
+import dev.jorel.commandapi.kotlindsl.anyExecutor
+import dev.jorel.commandapi.kotlindsl.commandTree
+import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
+import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.entity.Player
 
@@ -29,7 +32,7 @@ fun flyCommand() = commandTree("fly") {
         }
     }
 
-    entitySelectorArgumentOnePlayer("player") {
+    entitySelectorArgumentOnePlayer("target") {
         withPermission(SimpleCorePermissionRegistry.FLY_COMMAND_OTHERS)
         anyExecutor { executor, args ->
             val target = args[0] as Player
