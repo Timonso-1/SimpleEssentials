@@ -11,7 +11,6 @@ import org.bukkit.entity.Player
 
 fun godCommand() = commandTree("god") {
     withPermission(SimpleCorePermissionRegistry.GOD_COMMAND)
-
     playerExecutor { player, _ ->
         player.isInvulnerable = !player.isInvulnerable
 
