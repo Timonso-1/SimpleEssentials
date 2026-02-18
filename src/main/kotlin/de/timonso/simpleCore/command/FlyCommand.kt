@@ -19,7 +19,8 @@ fun flyCommand() = commandTree("fly") {
 
             player.sendText {
                 append(PrefixUtil.PREFIX)
-                success("Du kannst nun nicht mehr fliegen.")
+                success("Du kannst nun nicht mehr fliegen")
+                success(".")
             }
         } else {
             player.allowFlight = true
@@ -27,7 +28,8 @@ fun flyCommand() = commandTree("fly") {
 
             player.sendText {
                 append(PrefixUtil.PREFIX)
-                success("Du kannst nun fliegen.")
+                success("Du kannst nun fliegen")
+                success(".")
             }
         }
     }
@@ -45,11 +47,13 @@ fun flyCommand() = commandTree("fly") {
                     append(PrefixUtil.PREFIX)
                     variableValue(target.name)
                     appendSpace()
-                    success("kann nun nicht mehr fliegen.")
+                    success("kann nun nicht mehr fliegen")
+                    success(".")
                 }
                 target.sendText {
                     append(PrefixUtil.PREFIX)
-                    info("Du kannst nun nicht mehr fliegen.")
+                    info("Du kannst nun nicht mehr fliegen")
+                    info(".")
                 }
             } else {
                 target.allowFlight = true
@@ -60,10 +64,12 @@ fun flyCommand() = commandTree("fly") {
                     variableValue(target.name)
                     appendSpace()
                     success("kann nun fliegen.")
+                    success(".")
                 }
                 target.sendText {
                     append(PrefixUtil.PREFIX)
-                    info("Du kannst nun fliegen.")
+                    info("Du kannst nun fliegen")
+                    info(".")
                 }
             }
         }

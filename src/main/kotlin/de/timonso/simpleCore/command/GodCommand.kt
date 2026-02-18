@@ -2,7 +2,10 @@ package de.timonso.simpleCore.command
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.PrefixUtil
-import dev.jorel.commandapi.kotlindsl.*
+import dev.jorel.commandapi.kotlindsl.anyExecutor
+import dev.jorel.commandapi.kotlindsl.commandTree
+import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
+import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.entity.Player
 
@@ -14,12 +17,14 @@ fun godCommand() = commandTree("god") {
         if (player.isInvulnerable) {
             player.sendText {
                 append(PrefixUtil.PREFIX)
-                success("Du bist nun im Godmode.")
+                success("Du bist nun im Godmode")
+                success(".")
             }
         } else {
             player.sendText {
                 append(PrefixUtil.PREFIX)
-                success("Du bist nun nicht mehr im Godmode.")
+                success("Du bist nun nicht mehr im Godmode")
+                success(".")
             }
         }
     }
@@ -36,22 +41,26 @@ fun godCommand() = commandTree("god") {
                     append(PrefixUtil.PREFIX)
                     variableValue(target.name)
                     appendSpace()
-                    success("ist nun im Godmode.")
+                    success("ist nun im Godmode")
+                    success(".")
                 }
                 target.sendText {
                     append(PrefixUtil.PREFIX)
-                    info("Du bist nun im Godmode.")
+                    info("Du bist nun im Godmode")
+                    info(".")
                 }
             } else {
                 executor.sendText {
                     append(PrefixUtil.PREFIX)
                     variableValue(target.name)
                     appendSpace()
-                    success("ist nun nicht mehr im Godmode.")
+                    success("ist nun nicht mehr im Godmode")
+                    success(".")
                 }
                 target.sendText {
                     append(PrefixUtil.PREFIX)
-                    info("Du bist nun nicht mehr im Godmode.")
+                    info("Du bist nun nicht mehr im Godmode")
+                    info(".")
                 }
             }
         }
