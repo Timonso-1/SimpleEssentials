@@ -12,4 +12,5 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val SEED_COMMAND = create("$PREFIX.seed.command")
     val TELEPORT_COMMAND = create("$PREFIX.teleport.command")
     val TELEPORT_COMMAND_OTHERS = create("$PREFIX.teleport.others.command")
+    val SUMMON_COMMAND = create("$PREFIX.summon.command")
 }
