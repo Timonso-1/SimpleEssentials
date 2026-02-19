@@ -5,6 +5,7 @@ import de.timonso.simpleCore.command.godCommand
 import de.timonso.simpleCore.command.vanilla.seedCommand
 import de.timonso.simpleCore.command.vanilla.summonCommand
 import de.timonso.simpleCore.command.vanilla.teleportCommand
+import de.timonso.simpleCore.command.vanilla.whitelistCommand
 
 object PaperCommandManager {
     fun registerALL() {
@@ -13,5 +14,6 @@ object PaperCommandManager {
         seedCommand()
         teleportCommand()
         summonCommand()
+        whitelistCommand()
     }
 }
