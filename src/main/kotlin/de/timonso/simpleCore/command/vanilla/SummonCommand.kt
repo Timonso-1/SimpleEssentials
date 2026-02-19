@@ -7,6 +7,7 @@ import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 
 fun summonCommand() = commandTree("summon") {
     withPermission(SimpleCorePermissionRegistry.SUMMON_COMMAND)
+
     entityTypeArgument("entityType") {
         playerExecutor { player, args ->
             val entityType = args[0] as org.bukkit.entity.EntityType
