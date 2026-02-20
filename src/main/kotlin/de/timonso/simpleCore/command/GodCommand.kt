@@ -2,10 +2,7 @@ package de.timonso.simpleCore.command
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.PrefixUtil
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.commandTree
-import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
-import dev.jorel.commandapi.kotlindsl.playerExecutor
+import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.entity.Player
 
@@ -32,7 +29,7 @@ fun godCommand() = commandTree("god") {
     entitySelectorArgumentOnePlayer("target") {
         withPermission(SimpleCorePermissionRegistry.GOD_COMMAND_OTHERS)
         anyExecutor { executor, args ->
-            val target = args[0] as Player
+            val target: Player by args
 
             target.isInvulnerable = !target.isInvulnerable
 

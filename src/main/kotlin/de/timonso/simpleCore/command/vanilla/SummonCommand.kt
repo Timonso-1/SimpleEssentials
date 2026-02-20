@@ -4,13 +4,15 @@ import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.PrefixUtil
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
+import org.bukkit.Location
+import org.bukkit.entity.EntityType
 
 fun summonCommand() = commandTree("summon") {
     withPermission(SimpleCorePermissionRegistry.SUMMON_COMMAND)
 
     entityTypeArgument("entityType") {
         playerExecutor { player, args ->
-            val entityType = args[0] as org.bukkit.entity.EntityType
+            val entityType: EntityType by args
             player.world.spawnEntity(player.location, entityType)
             player.sendText {
                 append(PrefixUtil.PREFIX)
@@ -24,11 +26,11 @@ fun summonCommand() = commandTree("summon") {
             }
         }
 
-        integerArgument("ammount") {
+        integerArgument("amount") {
             playerExecutor { player, args ->
-                val entityType = args[0] as org.bukkit.entity.EntityType
-                val ammount = args[1] as Int
-                repeat(ammount) {
+                val entityType: EntityType by args
+                val amount: Int by args
+                repeat(amount) {
                     player.world.spawnEntity(player.location, entityType)
                 }
 
@@ -36,7 +38,7 @@ fun summonCommand() = commandTree("summon") {
                     append(PrefixUtil.PREFIX)
                     success("Du hast")
                     appendSpace()
-                    variableValue(ammount.toString())
+                    variableValue(amount.toString())
                     success("x")
                     appendSpace()
                     variableValue(entityType.name.lowercase().replace("_", " "))
@@ -48,9 +50,9 @@ fun summonCommand() = commandTree("summon") {
 
             locationArgument("location") {
                 playerExecutor { player, args ->
-                    val entityType = args[0] as org.bukkit.entity.EntityType
-                    val amount = args[1] as Int
-                    val location = args[2] as org.bukkit.Location
+                    val entityType: EntityType by args
+                    val amount: Int by args
+                    val location: Location by args
                     repeat(amount) {
                         player.world.spawnEntity(location, entityType)
                     }

@@ -4,6 +4,8 @@ import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.PrefixUtil
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
+import org.bukkit.Location
+import org.bukkit.entity.Player
 
 fun teleportCommand() = commandTree("teleport") {
     withPermission(SimpleCorePermissionRegistry.TELEPORT_COMMAND)
@@ -11,7 +13,7 @@ fun teleportCommand() = commandTree("teleport") {
 
     entitySelectorArgumentOnePlayer("target") {
         playerExecutor { player, args ->
-            val target = args[0] as org.bukkit.entity.Player
+            val target: Player by args
             player.teleport(target.location)
 
             player.sendText {
@@ -27,7 +29,7 @@ fun teleportCommand() = commandTree("teleport") {
 
     locationArgument("location") {
         playerExecutor { player, args ->
-            val location = args[0] as org.bukkit.Location
+            val location: Location by args
             player.teleport(location)
 
             player.sendText {
@@ -46,14 +48,14 @@ fun teleportCommand() = commandTree("teleport") {
 
         entitySelectorArgumentOnePlayer("target") {
             anyExecutor { executor, args ->
-                val players = args[0] as List<org.bukkit.entity.Player>
-                val target = args[1] as org.bukkit.entity.Player
+                val players: Collection<Player> by args
+                val target: Player by args
                 players.forEach { it.teleport(target.location) }
 
                 if (players.size == 1) {
                     executor.sendText {
                         append(PrefixUtil.PREFIX)
-                        variableValue(players[0].name)
+                        variableValue(players.first().name)
                         appendSpace()
                         success("wurde zu")
                         appendSpace()
@@ -89,14 +91,14 @@ fun teleportCommand() = commandTree("teleport") {
 
         locationArgument("location") {
             anyExecutor { executor, args ->
-                val players = args[0] as List<org.bukkit.entity.Player>
-                val location = args[1] as org.bukkit.Location
+                val players: Collection<Player> by args
+                val location: Location by args
                 players.forEach { it.teleport(location) }
 
                 if (players.size == 1) {
                     executor.sendText {
                         append(PrefixUtil.PREFIX)
-                        variableValue(players[0].name)
+                        variableValue(players.first().name)
                         appendSpace()
                         success("wurde zu")
                         appendSpace()

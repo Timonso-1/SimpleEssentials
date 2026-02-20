@@ -2,10 +2,7 @@ package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.PrefixUtil
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.commandTree
-import dev.jorel.commandapi.kotlindsl.playerExecutor
-import dev.jorel.commandapi.kotlindsl.worldArgument
+import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.buildText
 import dev.slne.surf.surfapi.core.api.messages.adventure.clickCopiesToClipboard
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
@@ -33,7 +30,7 @@ fun seedCommand() = commandTree("seed") {
     }
     worldArgument("world") {
         anyExecutor { executor, args ->
-            val world = args[0] as World
+            val world: World by args
 
             executor.sendText {
                 append(PrefixUtil.PREFIX)
