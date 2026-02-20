@@ -36,6 +36,8 @@ fun godCommand() = commandTree("god") {
             if (target.isInvulnerable) {
                 executor.sendText {
                     append(PrefixUtil.PREFIX)
+                    success("Der Spieler")
+                    appendSpace()
                     variableValue(target.name)
                     appendSpace()
                     success("ist nun im Godmode")
@@ -49,6 +51,8 @@ fun godCommand() = commandTree("god") {
             } else {
                 executor.sendText {
                     append(PrefixUtil.PREFIX)
+                    success("Der Spieler")
+                    appendSpace()
                     variableValue(target.name)
                     appendSpace()
                     success("ist nun nicht mehr im Godmode")

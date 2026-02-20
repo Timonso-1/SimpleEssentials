@@ -55,6 +55,8 @@ fun teleportCommand() = commandTree("teleport") {
                 if (players.size == 1) {
                     executor.sendText {
                         append(PrefixUtil.PREFIX)
+                        success("Der Spieler")
+                        appendSpace()
                         variableValue(players.first().name)
                         appendSpace()
                         success("wurde zu")
@@ -98,6 +100,8 @@ fun teleportCommand() = commandTree("teleport") {
                 if (players.size == 1) {
                     executor.sendText {
                         append(PrefixUtil.PREFIX)
+                        success("Der Spieler")
+                        appendSpace()
                         variableValue(players.first().name)
                         appendSpace()
                         success("wurde zu")

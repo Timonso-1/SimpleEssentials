@@ -42,6 +42,8 @@ fun flyCommand() = commandTree("fly") {
 
                 executor.sendText {
                     append(PrefixUtil.PREFIX)
+                    success("Der Spieler")
+                    appendSpace()
                     variableValue(target.name)
                     appendSpace()
                     success("kann nun nicht mehr fliegen")
@@ -58,6 +60,8 @@ fun flyCommand() = commandTree("fly") {
 
                 executor.sendText {
                     append(PrefixUtil.PREFIX)
+                    success("Der Spieler")
+                    appendSpace()
                     variableValue(target.name)
                     appendSpace()
                     success("kann nun fliegen.")
