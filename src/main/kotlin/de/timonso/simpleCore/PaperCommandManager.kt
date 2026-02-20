@@ -2,10 +2,9 @@ package de.timonso.simpleCore
 
 import de.timonso.simpleCore.command.flyCommand
 import de.timonso.simpleCore.command.godCommand
-import de.timonso.simpleCore.command.vanilla.seedCommand
-import de.timonso.simpleCore.command.vanilla.summonCommand
-import de.timonso.simpleCore.command.vanilla.teleportCommand
-import de.timonso.simpleCore.command.vanilla.whitelistCommand
+import de.timonso.simpleCore.command.healCommand
+import de.timonso.simpleCore.command.pingCommand
+import de.timonso.simpleCore.command.vanilla.*
 
 object PaperCommandManager {
     fun registerALL() {
@@ -15,5 +14,9 @@ object PaperCommandManager {
         teleportCommand()
         summonCommand()
         whitelistCommand()
+        pingCommand()
+        healCommand()
+        opCommand()
+        deopCommand()
     }
 }

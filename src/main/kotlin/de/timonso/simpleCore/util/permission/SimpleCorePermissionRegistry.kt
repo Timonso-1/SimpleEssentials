@@ -14,4 +14,10 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val TELEPORT_COMMAND_OTHERS = create("$PREFIX.teleport.others.command")
     val SUMMON_COMMAND = create("$PREFIX.summon.command")
     val WHITELIST_COMMAND = create("$PREFIX.whitelist.command")
+    val HEAL_COMMAND = create("$PREFIX.heal.command")
+    val HEAL_COMMAND_OTHERS = create("$PREFIX.heal.others.command")
+    val PING_COMMAND = create("$PREFIX.ping.command")
+    val PING_COMMAND_OTHERS = create("$PREFIX.ping.others.command")
+    val OP_COMMAND = create("$PREFIX.operator.command")
+    val DEOP_COMMAND = create("$PREFIX.deop.command")
 }
