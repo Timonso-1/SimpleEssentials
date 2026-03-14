@@ -5,6 +5,7 @@ import de.timonso.simpleCore.util.prefix.PrefixUtil
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.Location
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 
 fun teleportCommand() = commandTree("teleport") {
@@ -132,6 +133,44 @@ fun teleportCommand() = commandTree("teleport") {
                         appendSpace()
                         success("teleportiert.")
                     }
+                }
+            }
+        }
+    }
+
+    entitySelectorArgumentOneEntity("entity") {
+        withPermission(SimpleCorePermissionRegistry.TELEPORT_COMMAND_OTHERS)
+
+        locationArgument("location") {
+            anyExecutor { executor, args ->
+                val entity: Entity by args
+                val location: Location by args
+                entity.teleport(location)
+
+                executor.sendText {
+                    append(PrefixUtil.PREFIX)
+                    success("Das Entity wurde zu")
+                    appendSpace()
+                    variableValue("(${location.x}, ${location.y}, ${location.z})")
+                    appendSpace()
+                    success("teleportiert.")
+                }
+            }
+        }
+
+        entitySelectorArgumentOnePlayer("targetPlayer") {
+            anyExecutor { executor, args ->
+                val entity: Entity by args
+                val targetPlayer: Player by args
+                entity.teleport(targetPlayer.location)
+
+                executor.sendText {
+                    append(PrefixUtil.PREFIX)
+                    success("Das Entity wurde zu")
+                    appendSpace()
+                    variableValue(targetPlayer.name)
+                    appendSpace()
+                    success("teleportiert.")
                 }
             }
         }
