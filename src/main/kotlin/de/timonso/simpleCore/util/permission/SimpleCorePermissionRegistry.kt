@@ -20,4 +20,8 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val PING_COMMAND_OTHERS = create("$PREFIX.ping.others.command")
     val OP_COMMAND = create("$PREFIX.operator.command")
     val DEOP_COMMAND = create("$PREFIX.deop.command")
+    val SPAWN_COMMAND = create("$PREFIX.spawn.command")
+    val SPAWN_WORLD_COMMAND = create("$PREFIX.spawn.world.command")
+    val SPAWN_SET_COMMAND = create("$PREFIX.spawn.set.command")
+    val SIMPLECORE_COMMAND = create("$PREFIX.command")
 }

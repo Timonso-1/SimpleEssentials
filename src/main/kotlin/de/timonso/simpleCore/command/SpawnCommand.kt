@@ -1,0 +1,98 @@
+package de.timonso.simpleCore.command
+
+import de.timonso.simpleCore.manager.SpawnLocationManager
+import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
+import de.timonso.simpleCore.util.prefix.CommandPrefix
+import dev.jorel.commandapi.kotlindsl.*
+import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
+import org.bukkit.Location
+import org.bukkit.World
+import org.bukkit.entity.Player
+
+private fun resolveSpawnLocationOrNotify(player: Player, worldName: String): Location? {
+    if (!SpawnLocationManager.hasSpawnLocation(worldName)) {
+        player.sendText {
+            append(CommandPrefix.COMMAND_PREFIX)
+            info("In der Welt")
+            appendSpace()
+            variableValue(worldName)
+            appendSpace()
+            info("ist noch kein Spawn gesetzt")
+            info(".")
+        }
+        return null
+    }
+
+    return SpawnLocationManager.getSpawnLocation(worldName) ?: run {
+        player.sendText {
+            append(CommandPrefix.COMMAND_PREFIX)
+            error("Der Spawnpunkt konnte nicht geladen werden")
+            error(".")
+        }
+        null
+    }
+}
+
+fun spawnCommand() = commandTree("spawn") {
+    withPermission(SimpleCorePermissionRegistry.SPAWN_COMMAND)
+
+    playerExecutor { player, _ ->
+        val worldName = player.world.name
+        val location = resolveSpawnLocationOrNotify(player, worldName) ?: return@playerExecutor
+
+        player.teleport(location)
+        player.sendText {
+            append(CommandPrefix.COMMAND_PREFIX)
+            success("Du wurdest zum Spawn der Welt")
+            appendSpace()
+            variableValue(worldName)
+            appendSpace()
+            success("teleportiert")
+            success(".")
+        }
+    }
+
+    literalArgument("set") {
+        withPermission(SimpleCorePermissionRegistry.SPAWN_SET_COMMAND)
+        playerExecutor { player, _ ->
+            val location = player.location
+            SpawnLocationManager.setSpawnLocation(location)
+            player.sendText {
+                append(CommandPrefix.COMMAND_PREFIX)
+                info("Du hast den Spawnpunkt in der Welt")
+                appendSpace()
+                variableValue(player.world.name)
+                appendSpace()
+                info("erfolgreich bei den Koordinaten")
+                appendSpace()
+                variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
+                appendSpace()
+                info("gesetzt")
+                info(".")
+            }
+        }
+    }
+
+    literalArgument("world") {
+        withPermission(SimpleCorePermissionRegistry.SPAWN_WORLD_COMMAND)
+
+        worldArgument("world") {
+            playerExecutor { player, args ->
+                val world: World by args
+                val worldName = world.name
+                val location = resolveSpawnLocationOrNotify(player, worldName) ?: return@playerExecutor
+
+                player.teleport(location)
+                player.sendText {
+                    append(CommandPrefix.COMMAND_PREFIX)
+                    success("Du wurdest zum Spawn der Welt")
+                    appendSpace()
+                    variableValue(worldName)
+                    appendSpace()
+                    success("teleportiert")
+                    success(".")
+                }
+            }
+        }
+    }
+}
