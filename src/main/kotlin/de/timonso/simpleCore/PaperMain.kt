@@ -6,6 +6,7 @@ class PaperMain : JavaPlugin() {
 
     override fun onEnable() {
         PaperCommandManager.registerALL()
+        PaperListenerManager.registerAll()
 
         server.consoleSender.sendMessage("SimpleCore has been enabled!")
     }
