@@ -53,7 +53,7 @@ fun spawnCommand() = commandTree("spawn") {
     }
 
     literalArgument("set") {
-        withPermission(SimpleCorePermissionRegistry.SPAWN_SET_COMMAND)
+        withPermission(SimpleCorePermissionRegistry.SPAWN_COMMAND_SET)
         playerExecutor { player, _ ->
             val location = player.location
             SpawnLocationManager.setSpawnLocation(location)
@@ -74,7 +74,7 @@ fun spawnCommand() = commandTree("spawn") {
     }
 
     literalArgument("world") {
-        withPermission(SimpleCorePermissionRegistry.SPAWN_WORLD_COMMAND)
+        withPermission(SimpleCorePermissionRegistry.SPAWN_COMMAND_WORLD)
 
         worldArgument("world") {
             playerExecutor { player, args ->
