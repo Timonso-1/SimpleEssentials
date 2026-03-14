@@ -18,5 +18,6 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         deopCommand()
         spawnCommand()
         simpleCoreCommand(plugin)
+        worldCommand()
     }
 }

@@ -24,4 +24,5 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val SPAWN_WORLD_COMMAND = create("$PREFIX.spawn.world.command")
     val SPAWN_SET_COMMAND = create("$PREFIX.spawn.set.command")
     val SIMPLECORE_COMMAND = create("$PREFIX.command")
+    val WORLD_COMMAND = create("$PREFIX.world.command")
 }
