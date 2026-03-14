@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandTree
 import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
@@ -17,13 +17,13 @@ fun opCommand() = commandTree("op") {
 
             if (player.isOp) {
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     error("Der Spieler ist bereits ein Operator.")
                 }
             } else {
                 player.isOp = true
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Der Spieler")
                     appendSpace()
                     variableValue(player.name)
@@ -33,7 +33,7 @@ fun opCommand() = commandTree("op") {
                 }
 
                 player.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Du bist nun ein Operator")
                     info(".")
                 }

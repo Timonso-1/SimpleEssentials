@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.entity.Player
@@ -11,7 +11,7 @@ fun pingCommand() = commandTree("ping") {
     playerExecutor { player, _ ->
 
         player.sendText {
-            append(PrefixUtil.PREFIX)
+            append(CommandPrefix.COMMAND_PREFIX)
             info("Dein Ping beträgt")
             appendSpace()
             variableValue("${player.ping}ms")
@@ -25,7 +25,7 @@ fun pingCommand() = commandTree("ping") {
             val target: Player by args
 
             executor.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 info("Der Spieler")
                 appendSpace()
                 variableValue(target.name)

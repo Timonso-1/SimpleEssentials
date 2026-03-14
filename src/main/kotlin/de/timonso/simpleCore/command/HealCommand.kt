@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.attribute.Attribute
@@ -15,7 +15,7 @@ fun healCommand() = commandTree("heal") {
         player.foodLevel = 20
         player.fireTicks = 0
         player.sendText {
-            append(PrefixUtil.PREFIX)
+            append(CommandPrefix.COMMAND_PREFIX)
             success("Du wurdest geheilt")
             success(".")
         }
@@ -31,7 +31,7 @@ fun healCommand() = commandTree("heal") {
             target.fireTicks = 0
 
             executor.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Der Spieler")
                 appendSpace()
                 variableValue(target.name)
@@ -41,7 +41,7 @@ fun healCommand() = commandTree("heal") {
             }
 
             target.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 info("Du wurdest geheilt")
                 info(".")
             }

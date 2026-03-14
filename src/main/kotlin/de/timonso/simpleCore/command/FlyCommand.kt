@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.entity.Player
@@ -15,7 +15,7 @@ fun flyCommand() = commandTree("fly") {
             player.isFlying = false
 
             player.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Du kannst nun nicht mehr fliegen")
                 success(".")
             }
@@ -24,7 +24,7 @@ fun flyCommand() = commandTree("fly") {
             player.isFlying = true
 
             player.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Du kannst nun fliegen")
                 success(".")
             }
@@ -41,7 +41,7 @@ fun flyCommand() = commandTree("fly") {
                 target.isFlying = false
 
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Der Spieler")
                     appendSpace()
                     variableValue(target.name)
@@ -50,7 +50,7 @@ fun flyCommand() = commandTree("fly") {
                     success(".")
                 }
                 target.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Du kannst nun nicht mehr fliegen")
                     info(".")
                 }
@@ -59,7 +59,7 @@ fun flyCommand() = commandTree("fly") {
                 target.isFlying = true
 
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Der Spieler")
                     appendSpace()
                     variableValue(target.name)
@@ -68,7 +68,7 @@ fun flyCommand() = commandTree("fly") {
                     success(".")
                 }
                 target.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Du kannst nun fliegen")
                     info(".")
                 }

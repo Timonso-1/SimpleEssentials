@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.Location
@@ -18,7 +18,7 @@ fun teleportCommand() = commandTree("teleport") {
             player.teleport(target.location)
 
             player.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Du wurdest zu")
                 appendSpace()
                 variableValue(target.name)
@@ -34,7 +34,7 @@ fun teleportCommand() = commandTree("teleport") {
             player.teleport(location)
 
             player.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Du wurdest zu")
                 appendSpace()
                 variableValue("(${location.x}, ${location.y}, ${location.z})")
@@ -55,7 +55,7 @@ fun teleportCommand() = commandTree("teleport") {
 
                 if (players.size == 1) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Der Spieler")
                         appendSpace()
                         variableValue(players.first().name)
@@ -68,7 +68,7 @@ fun teleportCommand() = commandTree("teleport") {
                     }
                 } else {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         variableValue(players.size)
                         appendSpace()
                         success("Spieler wurden zu")
@@ -81,7 +81,7 @@ fun teleportCommand() = commandTree("teleport") {
 
                 players.forEach {
                     it.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Du wurdest zu")
                         appendSpace()
                         variableValue(target.name)
@@ -100,7 +100,7 @@ fun teleportCommand() = commandTree("teleport") {
 
                 if (players.size == 1) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Der Spieler")
                         appendSpace()
                         variableValue(players.first().name)
@@ -113,7 +113,7 @@ fun teleportCommand() = commandTree("teleport") {
                     }
                 } else {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         variableValue(players.size)
                         appendSpace()
                         success("Spieler wurden zu")
@@ -126,7 +126,7 @@ fun teleportCommand() = commandTree("teleport") {
 
                 players.forEach {
                     it.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Du wurdest zu")
                         appendSpace()
                         variableValue("(${location.x}, ${location.y}, ${location.z})")
@@ -148,7 +148,7 @@ fun teleportCommand() = commandTree("teleport") {
                 entity.teleport(location)
 
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Das Entity wurde zu")
                     appendSpace()
                     variableValue("(${location.x}, ${location.y}, ${location.z})")
@@ -165,7 +165,7 @@ fun teleportCommand() = commandTree("teleport") {
                 entity.teleport(targetPlayer.location)
 
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Das Entity wurde zu")
                     appendSpace()
                     variableValue(targetPlayer.name)

@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.SuggestionInfo
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.kotlindsl.*
@@ -26,14 +26,14 @@ fun whitelistCommand() = commandTree("whitelist") {
         anyExecutor { executor, _ ->
             if (!Bukkit.hasWhitelist()) {
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     error("Die Whitelist ist bereits deaktiviert")
                     error(".")
                 }
             } else {
                 Bukkit.setWhitelist(false)
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Die Whitelist wurde deaktiviert")
                     success(".")
                 }
@@ -45,14 +45,14 @@ fun whitelistCommand() = commandTree("whitelist") {
         anyExecutor { executor, _ ->
             if (Bukkit.hasWhitelist()) {
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     error("Die Whitelist ist bereits aktiviert")
                     error(".")
                 }
             } else {
                 Bukkit.setWhitelist(true)
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Die Whitelist wurde aktiviert")
                     success(".")
                 }
@@ -64,7 +64,7 @@ fun whitelistCommand() = commandTree("whitelist") {
         anyExecutor { executor, _ ->
             if (Bukkit.hasWhitelist()) {
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Die Whitelist ist aktuell")
                     appendSpace()
                     variableValue("aktiviert")
@@ -72,7 +72,7 @@ fun whitelistCommand() = commandTree("whitelist") {
                 }
             } else {
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Die Whitelist ist aktuell")
                     appendSpace()
                     variableValue("deaktiviert")
@@ -90,7 +90,7 @@ fun whitelistCommand() = commandTree("whitelist") {
 
                 if (resolved == null) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         error("Der Spieler")
                         appendSpace()
                         variableValue(input)
@@ -106,7 +106,7 @@ fun whitelistCommand() = commandTree("whitelist") {
 
                 if (target.isWhitelisted) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         info("Der Spieler")
                         appendSpace()
                         variableValue(canonicalName)
@@ -117,7 +117,7 @@ fun whitelistCommand() = commandTree("whitelist") {
                 } else {
                     target.isWhitelisted = true
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Der Spieler")
                         appendSpace()
                         variableValue(canonicalName)
@@ -149,7 +149,7 @@ fun whitelistCommand() = commandTree("whitelist") {
 
                 if (resolved == null) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         error("Der Spieler")
                         appendSpace()
                         variableValue(input)
@@ -165,7 +165,7 @@ fun whitelistCommand() = commandTree("whitelist") {
 
                 if (!target.isWhitelisted) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         info("Der Spieler")
                         appendSpace()
                         variableValue(canonicalName)
@@ -176,7 +176,7 @@ fun whitelistCommand() = commandTree("whitelist") {
                 } else {
                     target.isWhitelisted = false
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Der Spieler")
                         appendSpace()
                         variableValue(canonicalName)
@@ -195,7 +195,7 @@ fun whitelistCommand() = commandTree("whitelist") {
                 val page: Int = if (args.get(0) == null) 1 else args[0] as Int
 
                 executor.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     info("Die Whitelistinformationen werden gerade geladen...")
                 }
 
@@ -210,7 +210,7 @@ fun whitelistCommand() = commandTree("whitelist") {
 
                 if (whitelistedPlayers.isEmpty()) {
                     executor.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         info("Es sind keine Spieler auf der Whitelist")
                         info(".")
                     }

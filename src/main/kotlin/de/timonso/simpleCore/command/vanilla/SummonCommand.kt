@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 import org.bukkit.Location
@@ -15,7 +15,7 @@ fun summonCommand() = commandTree("summon") {
             val entityType: EntityType by args
             player.world.spawnEntity(player.location, entityType)
             player.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 success("Du hast")
                 appendSpace()
                 variableValue("1x")
@@ -36,7 +36,7 @@ fun summonCommand() = commandTree("summon") {
                 }
 
                 player.sendText {
-                    append(PrefixUtil.PREFIX)
+                    append(CommandPrefix.COMMAND_PREFIX)
                     success("Du hast")
                     appendSpace()
                     variableValue("${amount}x")
@@ -58,7 +58,7 @@ fun summonCommand() = commandTree("summon") {
                     }
 
                     player.sendText {
-                        append(PrefixUtil.PREFIX)
+                        append(CommandPrefix.COMMAND_PREFIX)
                         success("Du hast")
                         appendSpace()
                         variableValue("${amount}x")

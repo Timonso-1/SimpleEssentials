@@ -1,7 +1,7 @@
 package de.timonso.simpleCore.command.vanilla
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
-import de.timonso.simpleCore.util.prefix.PrefixUtil
+import de.timonso.simpleCore.util.prefix.CommandPrefix
 import dev.jorel.commandapi.kotlindsl.*
 import dev.slne.surf.surfapi.core.api.messages.adventure.buildText
 import dev.slne.surf.surfapi.core.api.messages.adventure.clickCopiesToClipboard
@@ -13,7 +13,7 @@ fun seedCommand() = commandTree("seed") {
 
     playerExecutor { player, _ ->
         player.sendText {
-            append(PrefixUtil.PREFIX)
+            append(CommandPrefix.COMMAND_PREFIX)
             info("Der Seed der Welt")
             appendSpace()
             variableValue(player.world.name)
@@ -33,7 +33,7 @@ fun seedCommand() = commandTree("seed") {
             val world: World by args
 
             executor.sendText {
-                append(PrefixUtil.PREFIX)
+                append(CommandPrefix.COMMAND_PREFIX)
                 info("Der Seed der Welt")
                 appendSpace()
                 variableValue(world.name)
