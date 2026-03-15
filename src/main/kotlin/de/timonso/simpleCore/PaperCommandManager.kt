@@ -21,5 +21,12 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         worldCommand()
         hatCommand()
         playerInfoCommand()
+        anvilCommand()
+        cartographyTableCommand()
+        grindstoneCommand()
+        loomCommand()
+        smithingTableCommand()
+        stonecutterCommand()
+        workbenchCommand()
     }
 }

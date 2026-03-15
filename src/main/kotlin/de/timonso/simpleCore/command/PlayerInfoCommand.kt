@@ -13,7 +13,7 @@ import org.bukkit.attribute.Attribute
 import org.bukkit.entity.Player
 
 fun playerInfoCommand() = commandTree("playerinfo") {
-    withPermission(SimpleCorePermissionRegistry.PLAYERINFO_COMMAND)
+    withPermission(SimpleCorePermissionRegistry.PLAYER_INFO_COMMAND)
     entitySelectorArgumentOnePlayer("player") {
         anyExecutor { executor, args ->
             val player: Player by args

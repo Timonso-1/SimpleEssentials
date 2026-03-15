@@ -27,5 +27,12 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val WORLD_COMMAND = create("$PREFIX.world.command")
     val HAT_COMMAND = create("$PREFIX.hat.command")
     val HAT_COMMAND_OTHERS = create("$PREFIX.hat.others.command")
-    val PLAYERINFO_COMMAND = create("$PREFIX.players.command")
+    val PLAYER_INFO_COMMAND = create("$PREFIX.playerinfo.command")
+    val ANVIL_COMMAND = create("$PREFIX.anvil.command")
+    val CARTOGRAPHY_TABLE_COMMAND = create("$PREFIX.cartography.command")
+    val GRINDSTONE_COMMAND = create("$PREFIX.grindstone.command")
+    val LOOM_COMMAND = create("$PREFIX.loom.command")
+    val SMITHING_TABLE_COMMAND = create("$PREFIX.smithingtable.command")
+    val STONECUTTER_COMMAND = create("$PREFIX.stonecutter.command")
+    val WORKBENCH_COMMAND = create("$PREFIX.workbench.command")
 }
