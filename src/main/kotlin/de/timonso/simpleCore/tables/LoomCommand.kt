@@ -1,4 +1,4 @@
-package de.timonso.simpleCore.command
+package de.timonso.simpleCore.tables
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.CommandPrefix
