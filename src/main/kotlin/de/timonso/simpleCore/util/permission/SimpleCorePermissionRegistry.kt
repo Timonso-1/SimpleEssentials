@@ -39,4 +39,7 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val BACK_COMMAND = create("$PREFIX.back.command")
     val KILL_COMMAND = create("$PREFIX.kill.command")
     val KILL_COMMAND_OTHERS = create("$PREFIX.kill.others.command")
+    val ENDERCHEST_COMMAND = create("$PREFIX.enderchest.command")
+    val ENDERCHEST_COMMAND_OTHERS = create("$PREFIX.enderchest.others.command")
+    val ENDERCHEST_COMMAND_MODIFY = create("$PREFIX.enderchest.modify.command")
 }

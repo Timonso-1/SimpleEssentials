@@ -32,5 +32,6 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         setWorldSpawnCommand()
         backCommand()
         killCommand()
+        enderchestCommand()
     }
 }
