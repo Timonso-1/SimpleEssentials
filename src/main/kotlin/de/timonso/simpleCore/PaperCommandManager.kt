@@ -30,5 +30,6 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         stonecutterCommand()
         workbenchCommand()
         setWorldSpawnCommand()
+        backCommand()
     }
 }
