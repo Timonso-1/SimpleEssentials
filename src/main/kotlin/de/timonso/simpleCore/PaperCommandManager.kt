@@ -20,5 +20,6 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         simpleCoreCommand(plugin)
         worldCommand()
         hatCommand()
+        playerInfoCommand()
     }
 }

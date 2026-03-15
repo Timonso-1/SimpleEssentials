@@ -27,4 +27,5 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val WORLD_COMMAND = create("$PREFIX.world.command")
     val HAT_COMMAND = create("$PREFIX.hat.command")
     val HAT_COMMAND_OTHERS = create("$PREFIX.hat.others.command")
+    val PLAYERINFO_COMMAND = create("$PREFIX.players.command")
 }
