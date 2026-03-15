@@ -35,4 +35,5 @@ object SimpleCorePermissionRegistry : PermissionRegistry() {
     val SMITHING_TABLE_COMMAND = create("$PREFIX.smithingtable.command")
     val STONECUTTER_COMMAND = create("$PREFIX.stonecutter.command")
     val WORKBENCH_COMMAND = create("$PREFIX.workbench.command")
+    val SET_WORLD_SPAWN_COMMAND = create("$PREFIX.setworldspawn.command")
 }
