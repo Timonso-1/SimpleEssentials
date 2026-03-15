@@ -31,5 +31,6 @@ class PaperCommandManager(private val plugin: JavaPlugin) {
         workbenchCommand()
         setWorldSpawnCommand()
         backCommand()
+        killCommand()
     }
 }
