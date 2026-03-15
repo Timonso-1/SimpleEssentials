@@ -37,7 +37,7 @@ fun teleportCommand() = commandTree("teleport") {
                 append(CommandPrefix.COMMAND_PREFIX)
                 success("Du wurdest zu")
                 appendSpace()
-                variableValue("(${location.x}, ${location.y}, ${location.z})")
+                variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                 appendSpace()
                 success("teleportiert.")
             }
@@ -107,7 +107,7 @@ fun teleportCommand() = commandTree("teleport") {
                         appendSpace()
                         success("wurde zu")
                         appendSpace()
-                        variableValue("(${location.x}, ${location.y}, ${location.z})")
+                        variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                         appendSpace()
                         success("teleportiert.")
                     }
@@ -118,7 +118,7 @@ fun teleportCommand() = commandTree("teleport") {
                         appendSpace()
                         success("Spieler wurden zu")
                         appendSpace()
-                        variableValue("(${location.x}, ${location.y}, ${location.z})")
+                        variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                         appendSpace()
                         success("teleportiert.")
                     }
@@ -129,7 +129,7 @@ fun teleportCommand() = commandTree("teleport") {
                         append(CommandPrefix.COMMAND_PREFIX)
                         success("Du wurdest zu")
                         appendSpace()
-                        variableValue("(${location.x}, ${location.y}, ${location.z})")
+                        variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                         appendSpace()
                         success("teleportiert.")
                     }
@@ -151,7 +151,7 @@ fun teleportCommand() = commandTree("teleport") {
                     append(CommandPrefix.COMMAND_PREFIX)
                     success("Das Entity wurde zu")
                     appendSpace()
-                    variableValue("(${location.x}, ${location.y}, ${location.z})")
+                    variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                     appendSpace()
                     success("teleportiert.")
                 }

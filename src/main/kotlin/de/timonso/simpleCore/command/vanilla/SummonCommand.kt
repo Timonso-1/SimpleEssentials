@@ -65,6 +65,10 @@ fun summonCommand() = commandTree("summon") {
                         appendSpace()
                         variableValue(entityType.name.lowercase().replace("_", " "))
                         appendSpace()
+                        success("bei den Koordinaten")
+                        appendSpace()
+                        variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
+                        appendSpace()
                         success("gespawnt")
                         success(".")
                     }

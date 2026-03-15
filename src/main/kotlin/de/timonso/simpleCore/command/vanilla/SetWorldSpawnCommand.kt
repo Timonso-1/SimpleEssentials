@@ -36,7 +36,7 @@ fun setWorldSpawnCommand() = commandTree("setworldspawn") {
                 appendSpace()
                 success("wurde auf die Koordinaten")
                 appendSpace()
-                variableValue("${location.blockX} ${location.blockY} ${location.blockZ}")
+                variableValue("${location.blockX}, ${location.blockY}, ${location.blockZ}")
                 appendSpace()
                 success("gesetzt")
                 success(".")
