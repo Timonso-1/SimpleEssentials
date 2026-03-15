@@ -1,4 +1,4 @@
-package de.timonso.simpleCore.tables
+package de.timonso.simpleCore.table
 
 import de.timonso.simpleCore.util.permission.SimpleCorePermissionRegistry
 import de.timonso.simpleCore.util.prefix.CommandPrefix
@@ -6,13 +6,13 @@ import dev.jorel.commandapi.kotlindsl.commandTree
 import dev.jorel.commandapi.kotlindsl.playerExecutor
 import dev.slne.surf.surfapi.core.api.messages.adventure.sendText
 
-fun cartographyTableCommand() = commandTree("cartography-table") {
-    withPermission(SimpleCorePermissionRegistry.CARTOGRAPHY_TABLE_COMMAND)
+fun smithingTableCommand() = commandTree("smithing-table") {
+    withPermission(SimpleCorePermissionRegistry.SMITHING_TABLE_COMMAND)
     playerExecutor { player, _ ->
-        player.openCartographyTable(null, true)
+        player.openSmithingTable(null, true)
         player.sendText {
             append(CommandPrefix.COMMAND_PREFIX)
-            info("Der Kartentisch wurde geöffnet")
+            info("Der Schmiedetisch wurde geöffnet")
             info(".")
         }
     }
