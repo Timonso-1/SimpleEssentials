@@ -12,7 +12,7 @@ class EnderChestListener : Listener {
 
     @EventHandler
     fun onClick(event: InventoryClickEvent) {
-        val player = event.whoClicked as? Player ?: return
+        val player = event.whoClicked as Player
         val targetUUID = EnderChestManager.viewers[player.uniqueId] ?: return
         if(player.uniqueId == targetUUID) return
         if (!player.hasPermission(SimpleCorePermissionRegistry.ENDERCHEST_COMMAND_MODIFY)) {
