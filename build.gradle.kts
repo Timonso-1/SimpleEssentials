@@ -6,9 +6,9 @@ group = "de.timonso"
 version = findProperty("version") as String
 
 surfPaperPluginApi {
-    mainClass("de.timonso.simpleCore.PaperMain")
+    mainClass("de.timonso.simpleEssentials.PaperMain")
     generateLibraryLoader(false)
 
     authors.addAll("Timonso")
-    description = "SimpleCore adds many useful features."
+    description = "SimpleEssentials adds many useful features."
 }

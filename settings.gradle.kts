@@ -1,4 +1,4 @@
-rootProject.name = "SimpleCore"
+rootProject.name = "SimpleEssentials"
 
 pluginManagement {
     repositories {
