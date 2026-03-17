@@ -11,7 +11,7 @@ import java.util.logging.Level
 
 fun simpleCoreCommand(plugin: JavaPlugin) = commandTree("simpleessentials") {
 
-    withPermission(SimpleEssentialsRegistry.SIMPLECORE_COMMAND)
+    withPermission(SimpleEssentialsRegistry.SIMPLEESSENTIALS_COMMAND)
     literalArgument("reload") {
         playerExecutor { player, _ ->
             try {

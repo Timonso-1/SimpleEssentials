@@ -23,7 +23,7 @@ object SimpleEssentialsRegistry : PermissionRegistry() {
     val SPAWN_COMMAND = create("$PREFIX.spawn.command")
     val SPAWN_COMMAND_WORLD = create("$PREFIX.spawn.world.command")
     val SPAWN_COMMAND_SET = create("$PREFIX.spawn.set.command")
-    val SIMPLECORE_COMMAND = create("$PREFIX.command")
+    val SIMPLEESSENTIALS_COMMAND = create("$PREFIX.command")
     val WORLD_COMMAND = create("$PREFIX.world.command")
     val HAT_COMMAND = create("$PREFIX.hat.command")
     val HAT_COMMAND_OTHERS = create("$PREFIX.hat.others.command")
