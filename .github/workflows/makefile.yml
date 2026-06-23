@@ -19,6 +19,7 @@ jobs:
       with:
         distribution: temurin
         java-version: "21"
+        cache: gradle
 
     - name: Build with Gradle
       run: gradle build --no-daemon
